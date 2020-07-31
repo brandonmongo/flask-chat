@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Page for {{ username }}</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome {{ username }}</h1>
-    {{ chat_messages }}
-</body>
+    {% for message in chat_message %}
+    <p>({{ message.timestamp }} {{ message.from }}: {{ message.message }})</p>
+    {% endfor %}
+
+    <script>
+    let timer = setTimeout(funtion(){
+        location.reload();}, 5000)
+    </script>
+  </body>
 </html>
